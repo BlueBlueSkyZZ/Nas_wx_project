@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="userinfo">
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </block>
+</view>
+<view>
+  <view>设备ID:{{deviceID}}</view>
+  <view>在线时长：{{hour}}时{{minute}}分</view>
+  <view>已充电量：{{chargeAmount}}</view>
+</view>
+<view>功率：{{power}}mAh</view>
+<button wx:if="{{chargingFlag}}">开始充电</button>
+<button wx:else disabled='true'>充电中</button>
